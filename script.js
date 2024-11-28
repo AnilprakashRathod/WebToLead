@@ -1,5 +1,7 @@
-function beforesubmit() {
-    // Select the input and output fields
+ let captchachecked =  false;
+function beforesubmit(event) {
+    if(captchachecked){
+      // Select the input and output fields
     let outputdate = document.querySelector(".outputdate");
     let inputdate = document.querySelector(".inputdate");
 
@@ -18,6 +20,12 @@ function beforesubmit() {
     } else {
         console.error("Lead Date is not provided.");
     }
+
+    }else{
+        alert("Please check the reCAPTCHA box to submit the lead");
+        event.preventDefault();
+    }
+    
 }
 
 function timestamp() { 
@@ -28,3 +36,9 @@ function timestamp() {
         document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems);
      } 
     } setInterval(timestamp, 500);
+
+
+    function captchasuccess(){
+        captchachecked = true;
+
+    }
