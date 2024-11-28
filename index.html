@@ -14,7 +14,7 @@
     <form 
         action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D5i00000CHVnr" 
         method="POST" 
-        onsubmit="beforesubmit()"
+        onsubmit="beforesubmit(event)"
     >
         
         <input type="hidden" name="oid" value="00D5i00000CHVnr">
@@ -34,7 +34,10 @@
         <label for="lead_date">Lead Date</label>
         <input id="lead_date" type="date" class="inputdate" required><br>
 
-        <div class="g-recaptcha" data-sitekey="6LcPc4wqAAAAABjSYx7NW7s3LB7Mza57mRsxBEyP"></div><br>
+        <div class="g-recaptcha" 
+        data-callback="captchasuccess" 
+        data-sitekey="6LcPc4wqAAAAABjSYx7NW7s3LB7Mza57mRsxBEyP">
+       </div><br>
         <input type="submit" class="submit" name="submit">
     </form>
 </body>
